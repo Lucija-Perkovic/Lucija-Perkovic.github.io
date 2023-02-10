@@ -7,7 +7,7 @@ import { type Movie } from '../../app/models/movies'
 import MovieCard from '../../components/MovieCard'
 import { checkIfLoading } from '../../app/store/reducers/uiReducer'
 import Spinner from '../../components/Spinner'
-import { Div, Grid, Header, Input, NavBar } from './styles'
+import { Div, Grid, Header, Input, NavBar } from './Home.styles'
 
 function Home (): JSX.Element {
   const [searchParam, setSearchParam] = useState<string>()
