@@ -37,6 +37,7 @@ function MovieCard ({ movie }: IMovieProp): JSX.Element {
             : (
                   <Button onClick={() => openModal(movie)}>{movie.original_title}</Button>
               )}
+            {movie.title}
         </Wrapper>
         <MovieModal/>
       </>

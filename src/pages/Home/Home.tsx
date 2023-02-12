@@ -45,7 +45,7 @@ function Home (): JSX.Element {
                       ? <Grid>
                             {
                                 movies.map((movie: Movie, index: number) => (
-                                    <MovieCard movie={movie} key={index} />
+                                        <MovieCard movie={movie} key={index} />
                                 ))
                             }
                         </Grid>

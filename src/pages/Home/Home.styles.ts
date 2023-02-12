@@ -18,7 +18,7 @@ export const NavBar = styled.nav`
   background-color: rgba(0,0,0, 0.8);
   padding: 1rem;
   height: 8vh;
-  margin-bottom: 2em;
+  margin-bottom: 10em;
 `
 
 export const Header = styled.header`
@@ -30,9 +30,9 @@ export const Header = styled.header`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 5px;
+  grid-gap: 15px;
   align-items:center;
-  margin: 1em;
+  margin: 1.5em;
 `
 
 export const Div = styled.text`
