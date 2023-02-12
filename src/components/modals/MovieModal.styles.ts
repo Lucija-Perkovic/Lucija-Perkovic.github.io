@@ -15,15 +15,29 @@ export const Modal = styled.div.attrs<IModalProps>(({ show }) => ({
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 `
-
 export const Container = styled.div`
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
+  border-radius: 20px;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+`
+
+export const HeaderDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const Header = styled.header`
+  font-size: 46px;
+  font-weight: bold;
+`
+
+export const Div = styled.div`
+  font-size: 24px;
 `
