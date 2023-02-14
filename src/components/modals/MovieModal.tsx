@@ -15,16 +15,15 @@ import { getImageUrl } from '../../services/ImageService'
 import OverviewComponent from './OverviewComponent'
 
 const MovieModal = (): JSX.Element => {
+  const dispatch = useDispatch()
   const [imageUrl, setImageUrl] = useState<string>()
   const showModal = useSelector((state: AppState) => state.modal.showModal)
   const movie: Movie = useSelector((state: AppState) => state.movies.movie)
+
   useEffect(() => {
     setImageUrl(getImageUrl(movie.poster_path))
   }, [movie.poster_path])
-  const dispatch = useDispatch()
-  useEffect(() => {
-    console.log(movie)
-  }, [movie])
+
   return (
         <Modal show={showModal}>
           <Container>
