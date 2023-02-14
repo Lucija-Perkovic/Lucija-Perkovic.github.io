@@ -52,7 +52,7 @@ const Home = (): JSX.Element => {
                       ? <Grid>
                             {
                                 movies.map((movie: MovieList, index: number) => (
-                                        <MovieCard movie={movie} key={index} />
+                                  movie.poster_path !== null && movie.backdrop_path !== null && <MovieCard movie={movie} key={index} />
                                 ))
                             }
                         </Grid>

@@ -19,8 +19,8 @@ const MovieCard = ({ movie }: IMovieProp): JSX.Element => {
   }
 
   useEffect(() => {
-    setImageUrl(getImageUrl(movie.backdrop_path))
-  }, [movie.backdrop_path])
+    setImageUrl(getImageUrl(movie.poster_path))
+  }, [movie.poster_path])
 
   return (
       <>

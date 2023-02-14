@@ -1,5 +1,5 @@
 export interface MovieList {
-  poster_path: string | null
+  poster_path: string
   adult: boolean
   overview: string
   release_date: string
