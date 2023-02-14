@@ -6,5 +6,5 @@ export const GenreContainer = styled.div`
   text-align: center;
   background-color: rgba(60, 179, 113);
   padding: 1em;
-  margin:6px;
+  margin: 6px;
 `
