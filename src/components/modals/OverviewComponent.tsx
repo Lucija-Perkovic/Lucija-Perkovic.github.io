@@ -1,8 +1,6 @@
 import React from 'react'
 import {
   Column,
-  Data,
-  DataName,
   Img,
   OverviewContainer,
   Row,
@@ -12,6 +10,7 @@ import {
 } from './MovieModal.styles'
 import { type Genre, type Movie } from '../../app/models/movies'
 import GenreComponent from './GenreComponent'
+import MovieSpec, { type IMovieSpec } from './MovieSpec'
 
 interface IOverviewComponentProps {
   movie: Movie
@@ -19,6 +18,32 @@ interface IOverviewComponentProps {
 }
 const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.Element => {
   const voteCount = Math.round(movie.vote_count * 1000 / 1000)
+  const movieSpecs: IMovieSpec[] = [
+    {
+      dataName: 'POPULARITY',
+      data: Math.floor(movie.popularity),
+      icon: <StyledChart/>
+    },
+    {
+      dataName: 'RATING',
+      data: Math.round(movie.vote_average * 10) / 10,
+      icon: <StyledStar/>
+    },
+    {
+      dataName: 'VOTES',
+      data: voteCount
+    },
+    {
+      dataName: 'BUDGET',
+      data: Math.round(movie.budget / 1000000),
+      icon: <StyledMoney/>
+    },
+    {
+      dataName: 'RUNTIME',
+      data: movie.runtime,
+      icon: <StyledTime/>
+    }
+  ]
   return (
         <OverviewContainer>
             <Column>
@@ -31,65 +56,11 @@ const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.El
                     {movie.overview}
                 </Row>
                 <Row>
-                    <Column>
-                        <DataName>
-                            POPULARITY
-                        </DataName>
-                        <Row>
-                            <StyledChart/>
-                            <Data>
-                                {Math.floor(movie.popularity)}
-                            </Data>
-                        </Row>
-                    </Column>
-                    <Column>
-                        <DataName>
-                            RATING
-                        </DataName>
-                        <Row>
-                            <StyledStar/>
-                            <Data>
-                                {Math.round(movie.vote_average * 10) / 10}
-                            </Data>
-                        </Row>
-                    </Column>
-                    <Column>
-                        <DataName>
-                            VOTES
-                        </DataName>
-                        <Row>
-                                {voteCount > 1000
-                                  ? <Data>
-                                        {Math.round(voteCount / 1000)}M
-                                    </Data>
-                                  : <Data>
-                                        {voteCount}k
-                                    </Data>
-                                }
-                        </Row>
-                    </Column>
-                    <Column>
-                        <DataName>
-                            BUDGET
-                        </DataName>
-                        <Row>
-                            <StyledMoney/>
-                            <Data>
-                                {Math.round(movie.budget / 1000000)}M
-                            </Data>
-                        </Row>
-                    </Column>
-                    <Column>
-                        <DataName>
-                            RUNTIME
-                        </DataName>
-                        <Row>
-                            <StyledTime/>
-                            <Data>
-                                {movie.runtime}m
-                            </Data>
-                        </Row>
-                    </Column>
+                    {
+                        movieSpecs.map((movieSpec: IMovieSpec, index) => (
+                            <MovieSpec key={index} dataName={movieSpec.dataName} data={movieSpec.data} icon={movieSpec.icon}/>
+                        ))
+                    }
                 </Row>
             </Column>
             <Img
