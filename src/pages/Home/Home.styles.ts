@@ -20,7 +20,7 @@ export const NavBar = styled.nav`
 `
 
 export const Header = styled.header`
-  font-size: 46px;
+  font-size: 40px;
 `
 
 export const HeaderButton = styled.button`

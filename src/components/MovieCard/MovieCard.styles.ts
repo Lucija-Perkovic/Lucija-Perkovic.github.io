@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     transform: scale(1.1);
     cursor: pointer;
   }
-  font-size: large;
+  font-size: 18px;
 `
 
 export const Img = styled.img`

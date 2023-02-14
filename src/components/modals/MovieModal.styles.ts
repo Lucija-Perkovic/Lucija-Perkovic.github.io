@@ -20,6 +20,7 @@ export const Modal = styled.div.attrs<IModalProps>(({ show }) => ({
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   background: transparent;
+  overflow: auto;
 `
 export const Container = styled.div`
   margin: auto;
@@ -39,7 +40,7 @@ export const HeaderDiv = styled.div`
 `
 
 export const Header = styled.header`
-  font-size: 46px;
+  font-size: 40px;
   font-weight: bold;
 `
 
