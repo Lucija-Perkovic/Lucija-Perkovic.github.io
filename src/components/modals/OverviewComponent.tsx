@@ -48,7 +48,7 @@ const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.El
                         <Row>
                             <StyledStar/>
                             <Data>
-                                {Math.round(movie.vote_average)}
+                                {Math.round(movie.vote_average * 10) / 10}
                             </Data>
                         </Row>
                     </Column>
