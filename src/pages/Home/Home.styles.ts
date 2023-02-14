@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const Input = styled.input`
-  width: 480px;
-  height: 49px;
-  border: 3px solid black;
+  width: 15vw;
+  height: 5vh;
+  border: transparent;
   border-radius: 25px;
-  padding: 1px 48px 0 48px;
-  font-size: 22px;
+  padding: 1.5em;
+  font-size: 18px;
   outline: 0;
 ;
 `
@@ -15,31 +15,43 @@ export const NavBar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0,0,0, 0.8);
   padding: 1rem;
-  height: 8vh;
+  height: 6vh;
 `
 
 export const Header = styled.header`
   font-size: 46px;
-  color: snow;
+`
+
+export const HeaderButton = styled.button`
+  &:hover {
+    cursor: pointer;
+  }
+  background-color: transparent;
   margin-left: 1em;
+  border: none;
 `
 
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 15px;
-  align-items:center;
+  grid-template-rows: repeat(4,1fr);
+  grid-gap: 1em;
   margin: 1.5em;
-  height: 110vh;
-
+  height: 100%;
+  background: transparent;
+  text-align: center;
 `
 
-export const Div = styled.text`
+export const Div = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 92vh;
+      background-color: transparent;
+`
+
+export const Body = styled.body`
+  height: 100%;
 `

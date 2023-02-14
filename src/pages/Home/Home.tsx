@@ -7,7 +7,7 @@ import { type MovieList } from '../../app/models/movies'
 import MovieCard from '../../components/MovieCard/MovieCard'
 import { checkIfLoading } from '../../app/store/reducers/uiReducer'
 import Spinner from '../../components/Spinner/Spinner'
-import { Div, Grid, Header, Input, NavBar } from './Home.styles'
+import { Body, Div, Grid, Header, HeaderButton, Input, NavBar } from './Home.styles'
 import Paginator from '../../components/Paginator/Paginator'
 import { type SearchParams } from '../../app/models/search'
 import { requestSetSearchParams, SET_SEARCH_PARAMS } from '../../app/store/actions/searchActions'
@@ -28,9 +28,13 @@ const Home = (): JSX.Element => {
   const isLoading: boolean = useSelector((state: AppState) => checkIfLoading(state, SET_SEARCH_PARAMS, SEARCH_MOVIE_REQUEST, SEARCH_MOVIE_SUCCESS))
 
   return (
-      <>
+      <Body>
         <NavBar>
-          <Header>Movie Searcher</Header>
+          <HeaderButton onClick={() => { setSearchParams({ searchWord: '' }) }}>
+            <Header>
+              Movie Searcher
+            </Header>
+          </HeaderButton>
           <form>
             <Input
                 type='search'
@@ -54,7 +58,7 @@ const Home = (): JSX.Element => {
                         </Grid>
                       : <Div>Try searching for a movie..</Div>
             }
-      </>
+      </Body>
   )
 }
 

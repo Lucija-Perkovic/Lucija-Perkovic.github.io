@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { RiCloseCircleLine } from 'react-icons/ri'
 
 export interface IModalProps {
   show: boolean
@@ -15,9 +16,9 @@ export const Modal = styled.div.attrs<IModalProps>(({ show }) => ({
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
+  background: transparent;
 `
 export const Container = styled.div`
-  background-color: #fefefe;
   margin: auto;
   border: 1px solid #888;
   width: 50%;
@@ -40,4 +41,12 @@ export const Header = styled.header`
 
 export const Div = styled.div`
   font-size: 24px;
+  background: transparent;
+`
+
+export const StyledCloseButton = styled(RiCloseCircleLine)`
+  &:hover {
+    cursor: pointer;
+  }
+  font-size: 3em;
 `

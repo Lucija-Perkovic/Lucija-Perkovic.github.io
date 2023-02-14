@@ -5,14 +5,32 @@ import { store } from './app/store/store'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './index.css'
+import { createGlobalStyle } from 'styled-components'
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
-
+const GlobalStyle = createGlobalStyle`
+      div {
+        color: snow;
+        background-color: rgba(60, 60, 60);
+      }
+      header {
+        background: transparent;
+        color: snow;
+      }
+      nav {
+        background-color: rgba(60, 60, 60);
+      }
+      body {
+        background-color: rgba(60, 60, 60);
+      }
+  `
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+        <GlobalStyle/>
+
+        <App />
     </Provider>
   </React.StrictMode>
 )

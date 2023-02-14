@@ -21,6 +21,7 @@ const Spinner = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  color: snow;
 `
 
 export default Spinner

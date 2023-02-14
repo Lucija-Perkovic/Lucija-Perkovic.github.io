@@ -2,38 +2,40 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  align-self: center;
-  justify-self: center;
+  align-self: start;
   transition: transform .2s;
+  background: transparent;
   &:hover {
     opacity: 1;
     transform: scale(1.1);
+    cursor: pointer;
   }
-  margin: 1em;
   font-size: large;
 `
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  margin: auto;
+  background: transparent;
+  border-radius: 30px;
+  margin: 0.75em;
 `
 
 export const Button = styled.button`
-  width: 100%;
-  height: 100%;
-  background-color: rgba(221, 221, 221, 1);
+  min-width: 15em;
+  min-height: 15em;
   display: flex;
   flex-direction: column; 
   justify-content: center;
   align-items: center;
-  min-height: 190px;
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  background: transparent;
+  color: snow;
 `
