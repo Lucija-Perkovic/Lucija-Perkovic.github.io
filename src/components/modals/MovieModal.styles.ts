@@ -14,24 +14,22 @@ export const Modal = styled.div.attrs<IModalProps>(({ show }) => ({
 }))<IModalProps>`
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding: 10em; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
   background: transparent;
-  overflow: auto;
+  max-height: 60vh;
 `
 export const Container = styled.div`
   margin: auto;
   border: 1px solid #888;
-  width: 50%;
+  width: 70%;
   border-radius: 20px;
-  padding: 3em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   text-align: start;
+  padding: 3.5em;
 `
 
 export const HeaderDiv = styled.div`
@@ -61,8 +59,8 @@ export const OverviewContainer = styled.div`
   justify-content: space-between;
 `
 export const Img = styled.img`
-  width: 30%;
-  height: 30%;
+  width: 12em;
+  height: 18em;
   background: transparent;
   border-radius: 30px;
   margin: 0.75em;

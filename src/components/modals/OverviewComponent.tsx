@@ -18,6 +18,7 @@ interface IOverviewComponentProps {
   imageUrl: string | undefined
 }
 const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.Element => {
+  const voteCount = Math.round(movie.vote_count * 1000 / 1000)
   return (
         <OverviewContainer>
             <Column>
@@ -57,9 +58,14 @@ const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.El
                             VOTES
                         </DataName>
                         <Row>
-                            <Data>
-                                {Math.round(movie.vote_count * 1000 / 1000)}k
-                            </Data>
+                                {voteCount > 1000
+                                  ? <Data>
+                                        {Math.round(voteCount / 1000)}M
+                                    </Data>
+                                  : <Data>
+                                        {voteCount}k
+                                    </Data>
+                                }
                         </Row>
                     </Column>
                     <Column>
