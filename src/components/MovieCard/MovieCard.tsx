@@ -1,21 +1,21 @@
-import { type Movie } from '../app/models/movies'
+import { type MovieList } from '../../app/models/movies'
 import React, { useEffect, useState } from 'react'
-import { getImageUrl } from '../services/ImageService'
+import { getImageUrl } from '../../services/ImageService'
 import { useDispatch } from 'react-redux'
-import { requestOpenModal } from '../app/store/actions/modalActions'
-import MovieModal from './modals/MovieModal'
+import MovieModal from '../modals/MovieModal'
 import { Button, Img, Wrapper } from './MovieCard.styles'
+import { requestGetMovieDetails } from '../../app/store/actions/movieActions'
 
 interface IMovieProp {
-  movie: Movie
+  movie: MovieList
 }
 
-function MovieCard ({ movie }: IMovieProp): JSX.Element {
+const MovieCard = ({ movie }: IMovieProp): JSX.Element => {
   const [imageUrl, setImageUrl] = useState<string>()
   const [isValidUrl, setIsValidUrl] = useState<boolean>(Boolean(movie.backdrop_path))
   const dispatch = useDispatch()
-  const openModal = (movie: Movie): any => {
-    dispatch(requestOpenModal(movie))
+  const openModal = (movie: MovieList): any => {
+    dispatch(requestGetMovieDetails(movie.id))
   }
 
   useEffect(() => {

@@ -4,6 +4,10 @@ export const SEARCH_MOVIE_SUCCESS = 'SEARCH_MOVIE_SUCCESS'
 
 export const SEARCH_MOVIE_FAILURE = 'SEARCH_MOVIE_FAILURE'
 
-export function requestSearchMovie (searchParam: string): any {
-  return { type: SEARCH_MOVIE_REQUEST, searchParam }
+export const GET_MOVIE_DETAILS_REQUEST = 'GET_MOVIE_DETAILS_REQUEST'
+export const GET_MOVIE_DETAILS_SUCCESS = 'GET_MOVIE_DETAILS_SUCCESS'
+export const GET_MOVIE_DETAILS_FAILURE = 'GET_MOVIE_DETAILS_FAILURE'
+
+export const requestGetMovieDetails = (movieId: number): any => {
+  return { type: GET_MOVIE_DETAILS_REQUEST, movieId }
 }

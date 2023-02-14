@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import '../../App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { requestSearchMovie, SEARCH_MOVIE_REQUEST, SEARCH_MOVIE_SUCCESS } from '../../app/store/actions/movieActions'
+import { SEARCH_MOVIE_REQUEST, SEARCH_MOVIE_SUCCESS } from '../../app/store/actions/movieActions'
 import { type AppState } from '../../app/store/reducers'
-import { type Movie } from '../../app/models/movies'
-import MovieCard from '../../components/MovieCard'
+import { type MovieList } from '../../app/models/movies'
+import MovieCard from '../../components/MovieCard/MovieCard'
 import { checkIfLoading } from '../../app/store/reducers/uiReducer'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/Spinner/Spinner'
 import { Div, Grid, Header, Input, NavBar } from './Home.styles'
+import Paginator from '../../components/Paginator/Paginator'
+import { type SearchParams } from '../../app/models/search'
+import { requestSetSearchParams, SET_SEARCH_PARAMS } from '../../app/store/actions/searchActions'
 
-function Home (): JSX.Element {
-  const [searchParam, setSearchParam] = useState<string>()
+const Home = (): JSX.Element => {
+  const [searchParams, setSearchParams] = useState<SearchParams>()
   const [showHelpText, setShowHelpText] = useState<boolean>(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (searchParam != null && searchParam?.length > 0) {
-      dispatch(requestSearchMovie(searchParam))
+    if (searchParams?.searchWord != null && searchParams?.searchWord.length > 0) {
+      dispatch(requestSetSearchParams(searchParams))
       setShowHelpText(false)
     } else setShowHelpText(true)
-  }, [searchParam])
+  }, [searchParams?.searchWord, searchParams?.pageNumber])
 
-  const movies: Movie[] = useSelector((state: AppState) => state.movies.movies)
-  const isLoading: boolean = useSelector((state: AppState) => checkIfLoading(state, SEARCH_MOVIE_REQUEST, SEARCH_MOVIE_SUCCESS))
+  const movies: MovieList[] = useSelector((state: AppState) => state.movies.movies)
+  const isLoading: boolean = useSelector((state: AppState) => checkIfLoading(state, SET_SEARCH_PARAMS, SEARCH_MOVIE_REQUEST, SEARCH_MOVIE_SUCCESS))
 
   return (
       <>
@@ -32,26 +35,25 @@ function Home (): JSX.Element {
             <Input
                 type='search'
                 placeholder="Search movies..."
-                onChange={(e: React.FormEvent<HTMLInputElement>) => { setSearchParam(e.currentTarget.value) }}
-                value={searchParam}
+                onChange={(e: React.FormEvent<HTMLInputElement>) => { setSearchParams({ searchWord: e.currentTarget.value }) }}
+                value={searchParams?.searchWord}
             />
           </form>
         </NavBar>
-        <Div>
+          {!showHelpText && <Paginator/>}
             {
                 isLoading
-                  ? <Spinner/>
+                  ? <Div> <Spinner/> </Div>
                   : !showHelpText
                       ? <Grid>
                             {
-                                movies.map((movie: Movie, index: number) => (
+                                movies.map((movie: MovieList, index: number) => (
                                         <MovieCard movie={movie} key={index} />
                                 ))
                             }
                         </Grid>
-                      : <span>Try searching for a movie..</span>
+                      : <Div>Try searching for a movie..</Div>
             }
-        </Div>
       </>
   )
 }

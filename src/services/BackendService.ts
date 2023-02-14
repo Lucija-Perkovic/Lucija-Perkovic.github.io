@@ -1,4 +1,5 @@
 import axios, { type AxiosResponse } from 'axios'
+import { type SearchParams } from '../app/models/search'
 
 const BASE_URL = 'https://api.themoviedb.org/3'
 const client = axios.create({
@@ -11,7 +12,17 @@ const client = axios.create({
   }
 })
 
-export async function getSearchedMovies (searchParam: string): Promise<AxiosResponse<any>> {
-  const response = client.get('/search/movie', { params: { query: searchParam } })
+export async function getSearchedMovies (searchParams: SearchParams): Promise<AxiosResponse<any>> {
+  const response = client.get('/search/movie', {
+    params: {
+      query: searchParams.searchWord,
+      page: searchParams.pageNumber
+    }
+  })
+  return await response
+}
+
+export async function getMovie (movieId: number): Promise<AxiosResponse<any>> {
+  const response = client.get(`/movie/${movieId}`)
   return await response
 }

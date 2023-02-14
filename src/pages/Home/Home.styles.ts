@@ -18,7 +18,6 @@ export const NavBar = styled.nav`
   background-color: rgba(0,0,0, 0.8);
   padding: 1rem;
   height: 8vh;
-  margin-bottom: 10em;
 `
 
 export const Header = styled.header`
@@ -33,6 +32,8 @@ export const Grid = styled.div`
   grid-gap: 15px;
   align-items:center;
   margin: 1.5em;
+  height: 110vh;
+
 `
 
 export const Div = styled.text`

@@ -28,11 +28,11 @@ export const stopAction = (name: string): any => ({
   payload: { name }
 })
 
-export function showErrorToast (message: string): any {
+export const showErrorToast = (message: string): any => {
   return { type: SHOW_ERROR_TOAST, message }
 }
 
-export function hideErrorToast (): any {
+export const hideErrorToast = (): any => {
   return { type: HIDE_ERROR_TOAST }
 }
 
