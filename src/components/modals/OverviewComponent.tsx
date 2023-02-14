@@ -79,8 +79,6 @@ const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.El
                             </Data>
                         </Row>
                     </Column>
-                </Row>
-                <Row>
                     <Column>
                         <DataName>
                             RUNTIME

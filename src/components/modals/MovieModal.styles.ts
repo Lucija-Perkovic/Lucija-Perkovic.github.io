@@ -12,24 +12,25 @@ export const Modal = styled.div.attrs<IModalProps>(({ show }) => ({
     display: `${show ? 'block' : 'none'}`
   }
 }))<IModalProps>`
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding: 10em; /* Location of the box */
+  position: fixed; 
+  z-index: auto;
   left: 0;
   top: 0;
-  background: transparent;
-  max-height: 60vh;
+  padding-top: 10em;
+  background: rgba(240, 240, 240, .1);
+  height: 100vh;
+  width: 100vw;
 `
 export const Container = styled.div`
   margin: auto;
-  border: 1px solid #888;
-  width: 70%;
-  border-radius: 20px;
+  border: 2px solid #888;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   text-align: start;
   padding: 3.5em;
+  width: 60%;
 `
 
 export const HeaderDiv = styled.div`
