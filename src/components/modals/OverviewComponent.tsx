@@ -54,11 +54,11 @@ const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.El
                     </Column>
                     <Column>
                         <DataName>
-                            VOTE COUNT
+                            VOTES
                         </DataName>
                         <Row>
                             <Data>
-                                {movie.vote_count}
+                                {Math.round(movie.vote_count * 1000 / 1000)}k
                             </Data>
                         </Row>
                     </Column>
