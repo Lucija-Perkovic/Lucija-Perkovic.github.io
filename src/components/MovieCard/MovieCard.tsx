@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { getImageUrl } from '../../services/ImageService'
 import { useDispatch } from 'react-redux'
 import MovieModal from '../modals/MovieModal'
-import { Button, Img, Wrapper } from './MovieCard.styles'
+import { Img, Wrapper } from './MovieCard.styles'
 import { requestGetMovieDetails } from '../../app/store/actions/movieActions'
 
 interface IMovieProp {
@@ -28,9 +28,9 @@ const MovieCard = ({ movie }: IMovieProp): JSX.Element => {
               src={imageUrl}
               alt={movie.original_title}
               onClick={() => openModal(movie)}
+              data-cy="image"
           />
-          <Button onClick={() => openModal(movie)}>{movie.original_title}</Button>
-            {movie.title}
+        {movie.title}
         </Wrapper>
         <MovieModal/>
       </>

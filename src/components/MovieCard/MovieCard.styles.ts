@@ -24,18 +24,3 @@ export const Img = styled.img`
   border-radius: 30px;
   margin: 0.75em;
 `
-
-export const Button = styled.button`
-  min-width: 15em;
-  min-height: 15em;
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
-  background: transparent;
-  color: snow;
-`

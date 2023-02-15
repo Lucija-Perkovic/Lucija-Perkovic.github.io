@@ -29,7 +29,7 @@ const MovieModal = (): JSX.Element => {
   }, [movie.poster_path])
 
   return (
-        <Modal show={showModal}>
+        <Modal show={showModal} data-cy="modal">
           <Container>
               {
                   isLoading

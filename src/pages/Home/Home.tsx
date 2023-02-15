@@ -53,7 +53,7 @@ const Home = (): JSX.Element => {
                 isLoading
                   ? <Div> <Spinner/> </Div>
                   : !showHelpText
-                      ? <Grid>
+                      ? <Grid data-cy="movie-grid">
                             {
                                 movies.map((movie: MovieList, index: number) => (
                                   movie.poster_path !== null && movie.backdrop_path !== null && <MovieCard movie={movie} key={index} />
