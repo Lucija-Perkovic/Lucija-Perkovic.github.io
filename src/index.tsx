@@ -5,8 +5,8 @@ import { store } from './app/store/store'
 import reportWebVitals from './reportWebVitals'
 import './index.css'
 import { createGlobalStyle } from 'styled-components'
-import {RouterProvider} from "react-router-dom";
-import {router} from "./routes";
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes'
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
