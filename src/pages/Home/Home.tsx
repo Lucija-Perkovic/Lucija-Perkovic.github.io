@@ -48,18 +48,20 @@ const Home = (): JSX.Element => {
             />
           </form>
         </NavBar>
-          {!showHelpText && <Paginator/>}
             {
                 isLoading
                   ? <Div> <Spinner/> </Div>
                   : !showHelpText
-                      ? <Grid data-cy="movie-grid">
-                            {
-                                movies.map((movie: MovieList, index: number) => (
-                                  movie.poster_path !== null && movie.backdrop_path !== null && <MovieCard movie={movie} key={index} />
-                                ))
-                            }
-                        </Grid>
+                      ? <>
+                          {movies.length !== 0 ? <Paginator/> : <Div>No movies for your search. Try searching something else..</Div>}
+                      <Grid data-cy="movie-grid">
+                        {
+                          movies.map((movie: MovieList, index: number) => (
+                            movie.poster_path !== null && movie.backdrop_path !== null && <MovieCard movie={movie} key={index} />
+                          ))
+                        }
+                      </Grid>
+                    </>
                       : <Div>Try searching for a movie..</Div>
             }
       </>

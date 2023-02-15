@@ -1,11 +1,8 @@
 import React from 'react'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './routes'
+import Home from "./pages/Home/Home";
 function App (): JSX.Element {
   return (
-      <div>
-        <RouterProvider router={router}/>
-      </div>
+      <Home/>
   )
 }
 
