@@ -13,12 +13,16 @@ import { requestCloseModal } from '../../app/store/actions/modalActions'
 import { type Movie } from '../../app/models/movies'
 import { getImageUrl } from '../../services/ImageService'
 import OverviewComponent from './OverviewComponent'
+import { checkIfLoading } from '../../app/store/reducers/uiReducer'
+import { GET_MOVIE_DETAILS_REQUEST, GET_MOVIE_DETAILS_SUCCESS } from '../../app/store/actions/movieActions'
+import Spinner from '../Spinner/Spinner'
 
 const MovieModal = (): JSX.Element => {
   const dispatch = useDispatch()
   const [imageUrl, setImageUrl] = useState<string>()
   const showModal = useSelector((state: AppState) => state.modal.showModal)
   const movie: Movie = useSelector((state: AppState) => state.movies.movie)
+  const isLoading: boolean = useSelector((state: AppState) => checkIfLoading(state, GET_MOVIE_DETAILS_REQUEST, GET_MOVIE_DETAILS_SUCCESS))
 
   useEffect(() => {
     setImageUrl(getImageUrl(movie.poster_path))
@@ -27,14 +31,20 @@ const MovieModal = (): JSX.Element => {
   return (
         <Modal show={showModal}>
           <Container>
-              <HeaderDiv>
-                  <Header>{movie.title}</Header>
-                      <StyledCloseButton
-                          onClick={() => dispatch(requestCloseModal())}/>
-              </HeaderDiv>
-              {movie.original_title !== movie.title && <Div> {movie.original_title}</Div>}
-              <Div>{movie.release_date}</Div>
-              <OverviewComponent movie={movie} imageUrl={imageUrl}/>
+              {
+                  isLoading
+                    ? <Spinner/>
+                    : <>
+                          <HeaderDiv>
+                              <Header>{movie.title}</Header>
+                              <StyledCloseButton
+                                  onClick={() => dispatch(requestCloseModal())}/>
+                          </HeaderDiv>
+                          {movie.original_title !== movie.title && <Div> {movie.original_title}</Div>}
+                          <Div>{movie.release_date}</Div>
+                          <OverviewComponent movie={movie} imageUrl={imageUrl}/>
+                      </>
+              }
           </Container>
         </Modal>
   )

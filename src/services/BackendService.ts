@@ -1,9 +1,8 @@
 import axios, { type AxiosResponse } from 'axios'
 import { type SearchParams } from '../app/models/search'
 
-const BASE_URL = 'https://api.themoviedb.org/3'
 const client = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION_BEARER_TOKEN}`
   },
