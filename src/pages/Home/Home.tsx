@@ -44,6 +44,7 @@ const Home = (): JSX.Element => {
                 placeholder="Search movies..."
                 onChange={(e: React.FormEvent<HTMLInputElement>) => { setSearchParams({ searchWord: e.currentTarget.value }) }}
                 value={searchParams?.searchWord}
+                name="search"
             />
           </form>
         </NavBar>

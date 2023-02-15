@@ -12,7 +12,6 @@ interface IMovieProp {
 
 const MovieCard = ({ movie }: IMovieProp): JSX.Element => {
   const [imageUrl, setImageUrl] = useState<string>()
-  const [isValidUrl, setIsValidUrl] = useState<boolean>(Boolean(movie.backdrop_path))
   const dispatch = useDispatch()
   const openModal = (movie: MovieList): any => {
     dispatch(requestGetMovieDetails(movie.id))
@@ -25,18 +24,12 @@ const MovieCard = ({ movie }: IMovieProp): JSX.Element => {
   return (
       <>
         <Wrapper>
-          {isValidUrl
-            ? (
-                  <Img
-                      src={imageUrl}
-                      alt={movie.original_title}
-                      onError={() => { setIsValidUrl(false) }}
-                      onClick={() => openModal(movie)}
-                  />
-              )
-            : (
-                  <Button onClick={() => openModal(movie)}>{movie.original_title}</Button>
-              )}
+          <Img
+              src={imageUrl}
+              alt={movie.original_title}
+              onClick={() => openModal(movie)}
+          />
+          <Button onClick={() => openModal(movie)}>{movie.original_title}</Button>
             {movie.title}
         </Wrapper>
         <MovieModal/>

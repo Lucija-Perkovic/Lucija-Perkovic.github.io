@@ -20,7 +20,7 @@ const Paginator = (): JSX.Element => {
   const totalNrOfPages = useSelector((state: AppState) => state.movies.totalNrOfPages)
 
   const buttonNumbers = useButtonNumbers(currentPage, totalNrOfPages)
-  return <Wrapper>
+  return <Wrapper data-cy="paginator-div">
     {currentPage !== 1 && <StyledBiChevronsLeft
         onClick={() => dispatch(requestSetSearchParams({ searchWord, pageNumber: 1 }))}/>}
     {currentPage >= 2 && <StyledBiChevronLeft
