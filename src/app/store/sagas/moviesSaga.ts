@@ -11,17 +11,19 @@ import { SET_SEARCH_PARAMS } from '../actions/searchActions'
 import { OPEN_MODAL } from '../actions/modalActions'
 
 function * handleSearchedMovies (action: CustomAction): any {
-  try {
-    yield put({ type: SEARCH_MOVIE_REQUEST })
-    yield put(startAction(action.type))
-    const movies: any = yield call(getSearchedMovies, action.searchParams)
-    yield put({ type: SEARCH_MOVIE_SUCCESS, payload: movies.data })
-  } catch (e: any) {
-    console.error(e)
-    yield put({ type: SEARCH_MOVIE_FAILURE })
-    yield put({ type: SHOW_ERROR_TOAST, message: e.message })
-  } finally {
-    yield put(stopAction(action.type))
+  if (action.searchParams?.searchWord != null && action.searchParams?.searchWord.length > 0) {
+    try {
+      yield put({ type: SEARCH_MOVIE_REQUEST })
+      yield put(startAction(action.type))
+      const movies: any = yield call(getSearchedMovies, action.searchParams)
+      yield put({ type: SEARCH_MOVIE_SUCCESS, payload: movies.data })
+    } catch (e: any) {
+      console.error(e)
+      yield put({ type: SEARCH_MOVIE_FAILURE })
+      yield put({ type: SHOW_ERROR_TOAST, message: e.message })
+    } finally {
+      yield put(stopAction(action.type))
+    }
   }
 }
 

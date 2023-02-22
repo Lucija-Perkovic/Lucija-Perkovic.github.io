@@ -1,9 +1,9 @@
-import { type Movie, type MovieList } from '../../models/movies'
+import { type Movie, type MovieSearch } from '../../models/movies'
 import { type CustomAction } from '../actions/uiActions'
 import { GET_MOVIE_DETAILS_SUCCESS, SEARCH_MOVIE_SUCCESS } from '../actions/movieActions'
 
 export interface MovieState {
-  movies: MovieList[]
+  movies: MovieSearch[]
   totalNrOfPages: number
   currentPage: number
   movie: Movie

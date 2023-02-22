@@ -5,8 +5,7 @@ import { store } from './app/store/store'
 import reportWebVitals from './reportWebVitals'
 import './index.css'
 import { createGlobalStyle } from 'styled-components'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './routes'
+import App from './App'
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
@@ -30,7 +29,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
         <GlobalStyle/>
-        <RouterProvider router={router}/>
+        <App/>
     </Provider>
   </React.StrictMode>
 )

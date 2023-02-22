@@ -1,8 +1,12 @@
 import React from 'react'
-import Home from "./pages/Home/Home";
+import MovieList from './pages/Home/MovieList'
+import NavBar from './components/NavBar/NavBar'
 function App (): JSX.Element {
   return (
-      <Home/>
+      <>
+        <NavBar/>
+        <MovieList/>
+      </>
   )
 }
 

@@ -1,4 +1,4 @@
-export interface MovieList {
+export interface MovieSearch {
   poster_path: string
   adult: boolean
   overview: string

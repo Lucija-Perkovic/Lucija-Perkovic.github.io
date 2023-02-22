@@ -8,7 +8,7 @@ import {
   StyledMoney,
   StyledStar, StyledTime
 } from './MovieModal.styles'
-import { type Genre, type Movie } from '../../app/models/movies'
+import { type Genre, type Movie } from '../../../app/models/movies'
 import GenreComponent from './GenreComponent'
 import MovieSpec, { type IMovieSpec } from './MovieSpec'
 
@@ -16,7 +16,7 @@ interface IOverviewComponentProps {
   movie: Movie
   imageUrl: string | undefined
 }
-const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.Element => {
+const MovieOverview = ({ movie, imageUrl }: IOverviewComponentProps): JSX.Element => {
   const voteCount = Math.round(movie.vote_count * 1000 / 1000)
   const movieSpecs: IMovieSpec[] = [
     {
@@ -71,4 +71,4 @@ const OverviewComponent = ({ movie, imageUrl }: IOverviewComponentProps): JSX.El
   )
 }
 
-export default OverviewComponent
+export default MovieOverview

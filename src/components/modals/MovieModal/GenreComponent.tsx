@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Genre } from '../../app/models/movies'
+import { type Genre } from '../../../app/models/movies'
 import { GenreContainer } from './GenreComponent.styles'
 
 interface IGenreProps {

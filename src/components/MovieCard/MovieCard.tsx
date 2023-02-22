@@ -1,19 +1,19 @@
-import { type MovieList } from '../../app/models/movies'
+import { type MovieSearch } from '../../app/models/movies'
 import React, { useEffect, useState } from 'react'
 import { getImageUrl } from '../../services/ImageService'
 import { useDispatch } from 'react-redux'
-import MovieModal from '../modals/MovieModal'
+import MovieModal from '../modals/MovieModal/MovieModal'
 import { Img, Wrapper } from './MovieCard.styles'
 import { requestGetMovieDetails } from '../../app/store/actions/movieActions'
 
 interface IMovieProp {
-  movie: MovieList
+  movie: MovieSearch
 }
 
 const MovieCard = ({ movie }: IMovieProp): JSX.Element => {
   const [imageUrl, setImageUrl] = useState<string>()
   const dispatch = useDispatch()
-  const openModal = (movie: MovieList): any => {
+  const openModal = (movie: MovieSearch): any => {
     dispatch(requestGetMovieDetails(movie.id))
   }
 
