@@ -8,4 +8,4 @@ npm run start
 ```
 
 ## :tada: If you wish to see already deployed app, here is the link:
-https://lucija-perkovic.github.io/
+https://lucija-perkovic.github.io
